@@ -1,0 +1,18 @@
+<div id='messages-container' class="row flex-grow-1 overflow-scroll" data-controller="scroll">
+    <div class="col d-flex flex-column py-2">
+        <%= turbo_frame_tag 'messages' do %>
+            <% @chat.messages.each do |message| %>
+                <%= render message %>
+            <% end %>
+        <% end %>
+    </div>
+</div>
+
+<div class="row mt-2">
+  <%= form_for [@chat, Message.new], method: :post, remote: true do |f| %>
+    <div class="input-group mb-3">
+      <%= f.text_field :body, placeholder: 'Faça sua pergunta...', class: 'form-control' %>
+      <%= f.submit 'Send', class: 'btn btn-outline-secondary' %>
+    </div>
+  <% end %>
+</div>

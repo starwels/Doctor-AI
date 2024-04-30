@@ -1,0 +1,14 @@
+<%= turbo_stream.append 'messages' do %>
+  <%= render @message %>
+<% end %>
+
+<%= turbo_stream.append 'messages' do %>
+  <%= render @response %>
+<% end %>
+
+<%= turbo_stream.after 'messages-container' do %>
+  <%= javascript_tag %(
+    var messagesContainer = document.getElementById('messages-container');
+    messagesContainer.scrollTop = messagesContainer.scrollHeight;
+  ) %>
+<% end %>

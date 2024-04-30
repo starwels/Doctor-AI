@@ -1,0 +1,13 @@
+<div class="d-flex mb-1 <%= message.user? ? 'justify-content-start' : 'justify-content-end' %>">
+  <div class="d-flex flex-column">
+    <% if message.user? %>
+      <div class="small">You</div>
+    <% else %>
+      <div class="small text-end">Doctor A.I.</div>
+    <% end %>
+
+    <div class="border rounded-pill px-3 py-2 <%= message.user? ? 'bg-primary-subtle' : 'bg-success-subtle' %>">
+      <%= message.body %>
+    </div>
+  </div>
+</div>
