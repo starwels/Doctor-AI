@@ -17,14 +17,7 @@ module OpenAi
         headers: @headers
       }
 
-      response = self.class.post(@path, options)
-
-      puts '#########################'
-      puts 'Create Thread Message'
-      puts '#########################'
-      puts response
-
-      response
+      self.class.post(@path, options)
     end
   end
 end

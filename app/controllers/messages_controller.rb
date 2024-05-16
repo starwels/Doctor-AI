@@ -21,13 +21,11 @@ class MessagesController < ApplicationController
     # end
 
     chat = current_user.chats.find(params[:chat_id])
-    OpenAi::CreateThreadMessage.new(thread_id: chat.thread_id, prompt: message_params[:body]).call
-    OpenAi::RunThread.new(thread_id: chat.thread_id, assistant_id: chat.assistant.external_id).call
-
-    ai_response = OpenAi::ListThreadMessages.new(thread_id: chat.thread_id).call
 
     @message = chat.messages.create!(body: message_params[:body], origin: :user)
-    @response = chat.messages.create!(body: ai_response, origin: :ai)
+    @response = chat.messages.create!(body: '', origin: :ai)
+
+    AiResponseJob.perform_later(prompt: message_params[:body], message: @response)
 
     respond_to do |format|
       format.turbo_stream

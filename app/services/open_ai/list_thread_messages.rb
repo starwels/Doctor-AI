@@ -15,11 +15,6 @@ module OpenAi
 
       response = self.class.get(@path, options)
 
-      puts '#########################'
-      puts 'List Thread Message'
-      puts '#########################'
-      puts response
-
       response['data'][0]['content'][0]['text']['value']
     end
   end
