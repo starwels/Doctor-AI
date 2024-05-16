@@ -1,3 +1,23 @@
-<% @chats.each do |chat| %>
-  <%= link_to chat.name, chat %>
-<% end %>
+<div class="row">
+  <div class="col">
+    <h4>Conversas</h4>
+    <div class="border border-top border-success mb-2"></div>
+    <% @chats.each do |chat| %>
+      <div>
+        <%= link_to chat.name, chat %>
+      </div>
+    <% end %>
+  </div>
+  <div class="col">
+    <h4>Criar nova conversa</h4>
+    <div class="border border-top border-success mb-2"></div>
+    <div class="d-flex flex-column">
+      <% Assistant.all.each do |assistant| %>
+        <%= form_tag chats_path(assistant: assistant.name), method: :post, class: 'mb-2' do %>
+          <%= submit_tag assistant.name, class: 'btn btn-success' %>
+        <% end %>
+      <% end %>
+    </div>
+  </div>
+</div>
+

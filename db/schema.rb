@@ -15,11 +15,21 @@ ActiveRecord::Schema[7.1].define(version: 2024_04_24_231544) do
   enable_extension "pgcrypto"
   enable_extension "plpgsql"
 
+  create_table "assistants", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
+    t.string "name", null: false
+    t.string "external_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "chats", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
     t.string "name", null: false
+    t.string "thread_id"
+    t.uuid "assistant_id"
     t.uuid "user_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["assistant_id"], name: "index_chats_on_assistant_id"
     t.index ["user_id"], name: "index_chats_on_user_id"
   end
 
@@ -58,6 +68,7 @@ ActiveRecord::Schema[7.1].define(version: 2024_04_24_231544) do
     t.index ["unlock_token"], name: "index_users_on_unlock_token", unique: true
   end
 
+  add_foreign_key "chats", "assistants"
   add_foreign_key "chats", "users"
   add_foreign_key "messages", "chats"
 end

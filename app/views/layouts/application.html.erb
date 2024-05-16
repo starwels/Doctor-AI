@@ -11,7 +11,7 @@
   </head>
 
   <body>
-    <div class="container d-flex flex-column vh-100 bg-light">
+    <div class="container-fluid d-flex flex-column vh-100 bg-light">
 <!--      <p class="notice"><%#= notice %></p>-->
 <!--      <p class="alert"><%#= alert %></p>-->
 
@@ -20,7 +20,7 @@
           <h1>Doctor A.I.</h1>
         </div>
         <div class="d-flex flex-row">
-          <% if !current_page?(chats_path) %>
+          <% if params[:controller] == 'chats' && params[:action] == 'show' %>
             <div class="me-2">
               <%= link_to 'Voltar', chats_path, class: 'btn btn-primary', style: 'width: 100px'  %>
             </div>

@@ -7,7 +7,7 @@ module OpenAi
     base_uri 'https://api.openai.com/v1'
 
     def initialize(model = 'gpt-3.5-turbo')
-      @model = model
+      # @model = model
       @headers = {
         "Content-Type" => "application/json",
         "Authorization" => "Bearer #{Rails.application.credentials.openai[:api_key]}"
