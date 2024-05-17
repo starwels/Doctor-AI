@@ -9,6 +9,11 @@ class AiResponseService < ApplicationService
     OpenAi::RunThread.new(thread_id: @message.chat.thread_id, assistant_id: @message.chat.assistant.external_id).call
 
     ai_response = OpenAi::ListThreadMessages.new(thread_id: @message.chat.thread_id).call
+    puts '#########################'
+    puts '#######ListThreadMessages'
+    puts '#########################'
+    puts ai_response
+
     @message.update!(body: ai_response)
   end
 end
