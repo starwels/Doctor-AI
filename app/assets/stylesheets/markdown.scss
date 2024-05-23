@@ -1,0 +1,130 @@
+/* app/assets/stylesheets/custom.css */
+
+/* General Markdown Styles */
+.markdown-content {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    color: #333;
+}
+
+.markdown-content h1,
+.markdown-content h2,
+.markdown-content h3,
+.markdown-content h4,
+.markdown-content h5,
+.markdown-content h6 {
+    font-weight: bold;
+    margin-top: 1.2em;
+    margin-bottom: 0.6em;
+}
+
+.markdown-content p {
+    margin-bottom: 1em;
+}
+
+.markdown-content a {
+    color: #007bff;
+    text-decoration: none;
+}
+
+.markdown-content a:hover {
+    text-decoration: underline;
+}
+
+/* Code Blocks */
+.markdown-content pre {
+    background-color: #f8f9fa;
+    padding: 1em;
+    border-radius: 5px;
+    overflow: auto;
+}
+
+.markdown-content code {
+    background-color: #f1f1f1;
+    padding: 0.2em 0.4em;
+    border-radius: 3px;
+}
+
+/* Lists */
+.markdown-content ul,
+.markdown-content ol {
+    margin-top: 0;
+    margin-bottom: 1em;
+    padding-left: 2em;
+}
+
+.markdown-content ul li,
+.markdown-content ol li {
+    margin-bottom: 0.5em;
+}
+
+/* Blockquotes */
+.markdown-content blockquote {
+    padding: 0.5em 1em;
+    margin: 0 0 1em;
+    border-left: 0.25em solid #dfe2e5;
+    background-color: #f8f9fa;
+}
+
+/* Tables */
+.markdown-content table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 1em;
+}
+
+.markdown-content th,
+.markdown-content td {
+    border: 1px solid black;
+    padding: 8px;
+    text-align: left;
+}
+
+.markdown-content th {
+    background-color: #f2f2f2;
+}
+
+.markdown-content td {
+    background-color: rgba(255, 255, 255, .3);
+}
+
+/* Images */
+.markdown-content img {
+    max-width: 100%;
+    height: auto;
+}
+
+/* Custom Styles for Headings */
+.markdown-content h1 {
+    border-bottom: 2px solid #eaecef;
+    padding-bottom: 0.3em;
+}
+
+.markdown-content h2 {
+    border-bottom: 1px solid #eaecef;
+    padding-bottom: 0.3em;
+}
+
+.markdown-content h3 {
+    font-size: 1.25em;
+}
+
+.markdown-content h4 {
+    font-size: 1em;
+}
+
+.markdown-content h5 {
+    font-size: 0.875em;
+}
+
+.markdown-content h6 {
+    font-size: 0.85em;
+    color: #6a737d;
+}
+
+/* Horizontal Rules */
+.markdown-content hr {
+    border: none;
+    border-top: 1px solid #eaecef;
+    margin: 1.5em 0;
+}

@@ -1,5 +1,5 @@
 <div class="border rounded-3 px-3 py-2 bg-success-subtle">
-  <%= message.body %>
+  <%= MarkdownRenderer.new.render(message.body) %>
 </div>
 
 <%= javascript_tag %(
