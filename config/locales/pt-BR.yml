@@ -1,4 +1,18 @@
 pt-BR:
+  date:
+    formats:
+      default: "%d/%m/%Y"
+      short: "%d %b"
+      long: "%d de %B de %Y"
+      custom_short: "%d-%m-%Y"
+      custom_long: "%A, %d de %B de %Y"
+  time:
+    formats:
+      default: "%H:%M:%S"
+      short: "%H:%M"
+      long: "%H:%M:%S %Z"
+      custom_short: "%I:%M %p"
+      custom_long: "%I:%M %p %Z"
   activerecord:
     attributes:
       user:

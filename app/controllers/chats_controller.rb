@@ -23,7 +23,7 @@ class ChatsController < ApplicationController
 
     assistant = Assistant.find_by(name: params[:assistant])
 
-    @chat.name = params[:assistant]
+    @chat.name = "Chat - #{params[:assistant]} - #{l(Date.current)}"
     @chat.assistant = assistant
     @chat.thread_id = thread_id
 

@@ -2,18 +2,18 @@
   <div class="col">
     <h4>Conversas</h4>
     <div class="border border-top border-success mb-2"></div>
-    <% @chats.each do |chat| %>
-      <div>
-        <%= link_to chat.name, chat %>
-      </div>
-    <% end %>
+    <div class="d-grid gap-2">
+      <% @chats.each do |chat| %>
+        <%= link_to chat.name, chat, class: 'btn btn-outline-success' %>
+      <% end %>
+    </div>
   </div>
   <div class="col">
     <h4>Criar nova conversa</h4>
     <div class="border border-top border-success mb-2"></div>
-    <div class="d-flex flex-column">
+    <div class="d-grid gap-2">
       <% Assistant.all.each do |assistant| %>
-        <%= form_tag chats_path(assistant: assistant.name), method: :post, class: 'mb-2' do %>
+        <%= form_tag chats_path(assistant: assistant.name), method: :post, style: 'display: inherit' do %>
           <%= submit_tag assistant.name, class: 'btn btn-success' %>
         <% end %>
       <% end %>
