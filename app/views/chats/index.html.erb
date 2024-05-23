@@ -4,7 +4,7 @@
     <div class="border border-top border-success mb-2"></div>
     <div class="d-grid gap-2">
       <% @chats.each do |chat| %>
-        <%= link_to chat.name, chat, class: 'btn btn-outline-success' %>
+        <%= link_to chat.name, chat, class: 'btn btn-outline-success text-start' %>
       <% end %>
     </div>
   </div>
@@ -14,10 +14,9 @@
     <div class="d-grid gap-2">
       <% Assistant.all.each do |assistant| %>
         <%= form_tag chats_path(assistant: assistant.name), method: :post, style: 'display: inherit' do %>
-          <%= submit_tag assistant.name, class: 'btn btn-success' %>
+          <%= submit_tag assistant.name, class: 'btn btn-success text-start' %>
         <% end %>
       <% end %>
     </div>
   </div>
 </div>
-
