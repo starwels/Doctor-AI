@@ -23,7 +23,7 @@ class ChatsController < ApplicationController
 
     assistant = Assistant.find_by(name: params[:assistant])
 
-    @chat.name = "Chat - #{params[:assistant]} - #{l(Date.current.in_time_zone('Brasilia'))}"
+    @chat.name = "Chat - #{params[:assistant]} - #{Date.current.in_time_zone('Brasilia').strftime('%d/%m/%Y')}"
     @chat.assistant = assistant
     @chat.thread_id = thread_id
 
