@@ -1,0 +1,19 @@
+<div class="mb-3 d-flex flex-row justify-content-between">
+  <div class="h2">
+    Assistente: <%= @assistant.name %>
+  </div>
+  <%= link_to 'Voltar', admin_assistants_path, class: 'btn btn-primary' %>
+</div>
+
+<div class="card px-3 py-2">
+  <div>OpenAI id: <%= @assistant.external_id %></div>
+  <div class="border-bottom my-2"></div>
+  <div class="field">
+    <div class="h4 mb-1">Biblioteca</div>
+    <div class="border p-2 overflow-scroll" style="height: 300px">
+      <%= turbo_frame_tag "archives" do %>
+        <%= render partial: 'admin/archives/archive_checkboxes', locals: { assistant: @assistant, archives: @archives } %>
+      <% end %>
+    </div>
+  </div>
+</div>

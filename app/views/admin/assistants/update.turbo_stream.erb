@@ -1,0 +1,10 @@
+<%= turbo_frame_tag "archives" do %>
+  <div data-controller="archive" data-assistant-id="<%= @assistant.id %>">
+    <%= collection_check_boxes(:assistant, :archive_ids, @archives, :id, :title) do |b| %>
+      <div>
+        <%= b.check_box(data: { turbo_frame: "archives" }) %>
+        <%= b.label %>
+      </div>
+    <% end %>
+  </div>
+<% end %>

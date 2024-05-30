@@ -38,5 +38,8 @@ module DoctorAi
 
     config.active_job.queue_adapter = :sidekiq
     config.i18n.default_locale = :'pt-BR'
+    config.generators do |g|
+      g.orm :active_record, primary_key_type: :uuid
+    end
   end
 end

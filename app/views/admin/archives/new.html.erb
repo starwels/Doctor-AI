@@ -1,0 +1,18 @@
+<h2>Adicionar à Biblioteca</h2>
+
+<%= form_for [:admin, @archive] do |f| %>
+  <div class="mb-3">
+    <%= f.label :title, class: 'form-label' %><br />
+    <%= f.text_field :title, autofocus: true, class: 'form-control' %>
+  </div>
+
+  <div class="mb-3">
+    <%= f.label :pdf, class: 'form-label' %>
+    <%= f.file_field :pdf, class: 'form-control' %>
+  </div>
+
+  <div class="actions d-inline">
+    <%= f.submit 'Adicionar', class: 'btn btn-primary' %>
+    <%= link_to 'Voltar', admin_archives_path, class: 'btn btn-primary' %>
+  </div>
+<% end %>

@@ -1,0 +1,13 @@
+<div class="mb-3 d-flex justify-content-between">
+  <h2>Assistentes</h2>
+  <%= link_to 'Voltar', admin_root_path, class: 'btn btn-primary' %>
+</div>
+
+<% @assistants.each do |assistant| %>
+  <%= link_to [:admin, assistant], class: 'card mb-1 px-3 py-1 d-inline text-decoration-none' do %>
+    <div>
+      <span class="fw-bold">Nome:</span> <%= assistant.name %>
+      <span class="fw-bold">OpenAI id:</span> <%= assistant.external_id %>
+    </div>
+  <% end %>
+<% end %>

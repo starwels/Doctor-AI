@@ -1,0 +1,8 @@
+<div data-controller="archive" data-assistant-id="<%= assistant.id %>">
+  <%= collection_check_boxes(:assistant, :archive_ids, archives, :id, :title) do |b| %>
+    <div>
+      <%= b.check_box(data: { turbo_frame: "archives", action: "change->archive#toggleArchive" }) %>
+      <%= b.label %>
+    </div>
+  <% end %>
+</div>
