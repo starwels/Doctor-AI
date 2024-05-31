@@ -73,5 +73,6 @@ end
 gem "httparty", "~> 0.21.0"
 gem "devise", "~> 4.9"
 gem "sidekiq", "~> 7.2"
-
 gem "redcarpet", "~> 3.6"
+gem "google-cloud-storage", "~> 1.11", require: false
+
