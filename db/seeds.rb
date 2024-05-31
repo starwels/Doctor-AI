@@ -7,3 +7,7 @@
 #   ["Action", "Comedy", "Drama", "Horror"].each do |genre_name|
 #     MovieGenre.find_or_create_by!(name: genre_name)
 #   end
+
+u = User.create!(email: 'admin@doctorai.com', password: '10203040', password_confirmation: '10203040')
+u.skip_confirmation!
+u.save!

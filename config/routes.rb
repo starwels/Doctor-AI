@@ -22,6 +22,7 @@ Rails.application.routes.draw do
   root "chats#index"
 
   resources :chats, only: [:index, :show, :new, :create, :destroy] do
-    resources :messages, only: [:create]
+    resources :messages, only: :create
+    resources :archives, only: :index
   end
 end
