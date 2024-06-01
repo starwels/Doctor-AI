@@ -1,0 +1,8 @@
+<%= turbo_frame_tag @chat do %>
+  <%= form_for @chat do |f| %>
+    <div class="input-group">
+      <%= f.text_field :name, class: 'form-control shadow-none p-2 lh-lg', autofocus: true %>
+      <%= f.submit 'Atualizar', class: 'btn btn-primary btn-sm' %>
+    </div>
+  <% end %>
+<% end %>

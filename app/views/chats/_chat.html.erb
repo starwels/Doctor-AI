@@ -1,0 +1,19 @@
+<%= turbo_frame_tag chat do %>
+  <div class="card p-2 flex-row justify-content-between mb-1">
+    <%= link_to chat.name, chat,
+                data: { turbo_frame: "_top" },
+                class: 'link-underline-opacity-0 link-success link-underline-opacity-75-hover align-self-center' %>
+    <div class="d-flex flex-row">
+      <%= link_to edit_chat_path(chat),
+                  class: 'btn btn-primary btn-sm me-1' do %>
+        <i class="bi bi-pencil-square"></i>
+      <% end %>
+      <%= button_to chat_path(chat),
+                    method: :delete,
+                    data: { confirm: 'Tem certeza que deseja excluir o chat?' },
+                    class: 'btn btn-danger btn-sm' do %>
+        Excluir
+      <% end %>
+    </div>
+  </div>
+<% end %>

@@ -1,31 +1,32 @@
-<%= turbo_stream_from "messages" %>
+<%= turbo_frame_tag @chat, class: 'd-flex flex-grow-1' do %>
+  <%= turbo_stream_from "messages" %>
 
-<div class="row flex-grow-1">
-  <div class="col-3 border-end">
-    <div class="h5">
-      Biblioteca
+  <div class="row flex-grow-1">
+    <div class="col-3 border-end">
+      <div class="d-grid gap-2">
+        <%= link_to 'Biblioteca', chat_archives_path(@chat), class: 'btn btn-success', data: { turbo: false } %>
+        <%= link_to 'Prescrição', chat_archives_path(@chat), class: 'btn btn-success' %>
+      </div>
     </div>
-    <%= link_to 'Biblioteca', chat_archives_path(@chat), class: 'btn btn-primary' %>
-  </div>
-  <div class="col-9 d-flex flex-column">
-    <div id='messages-container' class="row flex-grow-1 overflow-scroll" data-controller="scroll">
-      <div class="col d-flex flex-column py-2">
-        <%= turbo_frame_tag 'messages' do %>
-          <% @chat.messages.each do |message| %>
-            <%= render message %>
+    <div class="col-9 d-flex flex-column">
+      <div id='messages-container' class="row flex-grow-1 overflow-scroll" data-controller="scroll">
+        <div class="col d-flex flex-column py-2">
+          <%= turbo_frame_tag 'messages' do %>
+            <% @chat.messages.each do |message| %>
+              <%= render message %>
+            <% end %>
           <% end %>
+        </div>
+      </div>
+
+      <div class="row mt-2">
+        <%= form_for [@chat, Message.new], method: :post do |f| %>
+          <div class="input-group mb-3">
+            <%= f.text_field :body, placeholder: 'Faça sua pergunta...', class: 'form-control shadow-none', autofocus: true, autocomplete: 'off', required: true %>
+            <%= f.submit 'Enviar', class: 'btn btn-outline-secondary' %>
+          </div>
         <% end %>
       </div>
     </div>
-
-    <div class="row mt-2">
-      <%= form_for [@chat, Message.new], method: :post do |f| %>
-        <div class="input-group mb-3">
-          <%= f.text_field :body, placeholder: 'Faça sua pergunta...', class: 'form-control shadow-none', autofocus: true, autocomplete: 'off', required: true %>
-          <%= f.submit 'Send', class: 'btn btn-outline-secondary' %>
-        </div>
-      <% end %>
-    </div>
   </div>
-</div>
-
+<% end %>

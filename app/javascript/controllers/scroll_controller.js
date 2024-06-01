@@ -16,7 +16,10 @@ export default class extends Controller {
 
   clearInput() {
     document.addEventListener("turbo:before-stream-render", event => {
-      document.getElementById('message_body').value = '';
+      const messageBody = document.getElementById('message_body');
+      if (messageBody) {
+        messageBody.value = '';
+      }
     });
   }
 }

@@ -29,4 +29,33 @@ class ChatsController < ApplicationController
 
     redirect_to @chat
   end
+
+  def edit
+    @chat = current_user.chats.find(params[:id])
+  end
+  def update
+    @chat = current_user.chats.find(params[:id])
+
+    if @chat.update(chat_params)
+      redirect_to chats_path
+    else
+      render :edit, status: :unprocessable_entity
+    end
+  end
+
+  def destroy
+    @chat = current_user.chats.find(params[:id])
+    @chat.destroy
+
+    respond_to do |format|
+      format.html { redirect_to chats_path }
+      format.turbo_stream
+    end
+  end
+
+  private
+
+  def chat_params
+    params.require(:chat).permit(:name)
+  end
 end
