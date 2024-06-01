@@ -12,7 +12,7 @@ Rails.application.routes.draw do
   # Can be used by load balancers and uptime monitors to verify that the app is live.
   get "up" => "rails/health#show", as: :rails_health_check
 
-  namespace :admin do
+  namespace :admin, constraints: Constraints::AdminConstraint.new do
     root "home#index"
     resources :archives, only: [:index, :new, :create]
     resources :assistants, only: [:index, :show, :update]

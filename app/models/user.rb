@@ -4,4 +4,6 @@ class User < ApplicationRecord
          :confirmable, :lockable, :trackable
 
   has_many :chats, dependent: :nullify
+
+  enum role: { user: 0, admin: 1 }
 end

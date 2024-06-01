@@ -11,3 +11,6 @@
 u = User.create!(email: 'admin@doctorai.com', password: '10203040', password_confirmation: '10203040')
 u.skip_confirmation!
 u.save!
+
+Assistant.create!(name: 'Resumex', external_id: 'asst_Hdq7fmjkboQOa62NhdXlZQPt')
+Assistant.create!(name: 'GreenMinds', external_id: 'asst_RFBLKJt7O5jSLm8hO5HtGE27')
