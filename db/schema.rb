@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2024_05_30_155003) do
+ActiveRecord::Schema[7.1].define(version: 2024_06_01_145029) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "pgcrypto"
   enable_extension "plpgsql"
@@ -76,6 +76,14 @@ ActiveRecord::Schema[7.1].define(version: 2024_05_30_155003) do
     t.index ["user_id"], name: "index_chats_on_user_id"
   end
 
+  create_table "clinical_cases", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
+    t.jsonb "patient_data"
+    t.uuid "chat_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["chat_id"], name: "index_clinical_cases_on_chat_id"
+  end
+
   create_table "messages", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
     t.text "body", null: false
     t.integer "origin", null: false
@@ -118,5 +126,6 @@ ActiveRecord::Schema[7.1].define(version: 2024_05_30_155003) do
   add_foreign_key "assistant_archives", "assistants"
   add_foreign_key "chats", "assistants"
   add_foreign_key "chats", "users"
+  add_foreign_key "clinical_cases", "chats"
   add_foreign_key "messages", "chats"
 end

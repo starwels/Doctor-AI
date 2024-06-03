@@ -1,0 +1,171 @@
+<%= form_with scope: :clinical_case, url: chat_clinical_cases_path, html: { class: "needs-validation", data: { controller: "form-validation" }, novalidate: true } do |f| %>
+  <div class="mb-3">
+    <div class="h4">Informações do Paciente</div>
+
+    <%= f.fields_for 'Informações do Paciente' do |nested_form| %>
+      <div class="row mb-2">
+        <div class="col">
+          <%= nested_form.label 'Idade *', class: 'form-label fs-6', autofocus: true %>
+          <%= nested_form.text_field 'Idade', class: 'form-control', required: true %>
+        </div>
+        <div class="col">
+          <%= nested_form.label 'Sexo *', class: 'form-label' %>
+          <%= nested_form.text_field 'Sexo', class: 'form-control', required: true %>
+        </div>
+      </div>
+    <% end %>
+  </div>
+
+  <div class="mb-3">
+    <div class="h4">Histórico Médico</div>
+
+    <%= f.fields_for 'Histórico Médico' do |nested_form| %>
+      <div class="mb-2">
+        <%= nested_form.label 'Condição Médica Principal *', class: 'form-label' %>
+        <%= nested_form.text_area 'Condição Médica Principal', class: 'form-control', required: true %>
+      </div>
+      <div class="mb-2">
+        <%= nested_form.label 'Diagnóstico (data e detalhes) *', class: 'form-label' %>
+        <%= nested_form.text_area 'Diagnóstico (data e detalhes)', class: 'form-control', required: true %>
+      </div>
+      <div class="mb-2">
+        <%= nested_form.label 'Sintomas e Duração *', class: 'form-label' %>
+        <%= nested_form.text_area 'Sintomas e Duração', class: 'form-control', required: true %>
+      </div>
+      <div class="mb-2">
+        <%= nested_form.label 'Tratamentos Anteriores e Resposta *', class: 'form-label' %>
+        <%= nested_form.text_area 'Tratamentos Anteriores e Resposta', class: 'form-control', required: true %>
+      </div>
+      <div class="mb-2">
+        <%= nested_form.label 'Comorbidades *', class: 'form-label' %>
+        <%= nested_form.text_area 'Comorbidades', class: 'form-control', required: true %>
+      </div>
+      <div class="mb-2">
+        <%= nested_form.label 'Alergias Conhecidas *', class: 'form-label' %>
+        <%= nested_form.text_area 'Alergias Conhecidas', class: 'form-control', required: true %>
+      </div>
+      <div class="mb-2">
+        <%= nested_form.label 'Uso de Medicamentos Atuais (incluindo dose e frequência) *', class: 'form-label' %>
+        <%= nested_form.text_area 'Uso de Medicamentos Atuais (incluindo dose e frequência)', class: 'form-control', required: true %>
+      </div>
+      <div class="mb-2">
+        <%= nested_form.label 'Uso de Suplementos e Terapias Alternativas *', class: 'form-label' %>
+        <%= nested_form.text_area 'Uso de Suplementos e Terapias Alternativas', class: 'form-control', required: true %>
+      </div>
+    <% end %>
+  </div>
+
+  <div class="mb-3">
+    <div class="h4">
+      Histórico de Uso de Cannabis
+    </div>
+
+    <%= f.fields_for 'Histórico de Uso de Cannabis' do |nested_form| %>
+      <div class="mb-2">
+        <%= nested_form.label 'Uso Anterior de Cannabis (medicinal ou recreativo) *', class: 'form-label' %>
+        <%= nested_form.text_area 'Uso Anterior de Cannabis (medicinal ou recreativo)', class: 'form-control', required: true %>
+      </div>
+      <div class="mb-2">
+        <%= nested_form.label 'Resposta a Cannabis (se aplicável)', class: 'form-label' %>
+        <%= nested_form.text_area 'Resposta a Cannabis (se aplicável)', class: 'form-control' %>
+      </div>
+      <div class="mb-2">
+        <%= nested_form.label 'Tipo de Produto Utilizado (se aplicável)', class: 'form-label' %>
+        <%= nested_form.text_area 'Tipo de Produto Utilizado (se aplicável)', class: 'form-control' %>
+      </div>
+    <% end %>
+  </div>
+
+  <div class="mb-3">
+    <div class="h4">
+      Avaliação Psicológica e Psiquiátrica
+    </div>
+
+    <%= f.fields_for 'Avaliação Psicológica e Psiquiátrica' do |nested_form| %>
+      <div class="mb-2">
+        <%= nested_form.label 'Histórico de Transtornos Mentais *', class: 'form-label' %>
+        <%= nested_form.text_area 'Histórico de Transtornos Mentais', class: 'form-control', required: true %>
+      </div>
+      <div class="mb-2">
+        <%= nested_form.label 'Sintomas Atuais de Ansiedade, Depressão ou Outros Distúrbios *', class: 'form-label' %>
+        <%= nested_form.text_area 'Sintomas Atuais de Ansiedade, Depressão ou Outros Distúrbios', class: 'form-control', required: true %>
+      </div>
+      <div class="mb-2">
+        <%= nested_form.label 'Uso de Medicamentos Psicotrópicos *', class: 'form-label' %>
+        <%= nested_form.text_area 'Uso de Medicamentos Psicotrópicos', class: 'form-control', required: true %>
+      </div>
+      <div class="mb-2">
+        <%= nested_form.label 'Histórico Familiar de Transtornos Mentais *', class: 'form-label' %>
+        <%= nested_form.text_area 'Histórico Familiar de Transtornos Mentais', class: 'form-control', required: true %>
+      </div>
+    <% end %>
+  </div>
+
+  <div class="mb-3">
+    <div class="h4">
+      Avaliação Física
+    </div>
+
+    <%= f.fields_for 'Avaliação Física' do |nested_form| %>
+      <div class="mb-2">
+        <%= nested_form.label 'Exame Físico Geral *', class: 'form-label' %>
+        <%= nested_form.text_area 'Exame Físico Geral', class: 'form-control', required: true %>
+      </div>
+      <div class="mb-2">
+        <%= nested_form.label 'Altura e Peso *', class: 'form-label' %>
+        <%= nested_form.text_area 'Altura e Peso', class: 'form-control', required: true %>
+      </div>
+      <div class="mb-2">
+        <%= nested_form.label :sinais_vitais, 'Sinais Vitais (pressão arterial, frequência cardíaca, temperatura, etc. – se aplicável)', for: 'sinais_vitais', class: 'form-label' %>
+        <%= nested_form.text_area 'Sinais Vitais (pressão arterial, frequência cardíaca, temperatura, etc. – se aplicável)', id: 'sinais_vitais', class: 'form-control' %>
+      </div>
+      <div class="mb-2">
+        <%= nested_form.label :exame_de_sistemas, 'Exame de Sistemas (neurológico, cardiovascular, respiratório, gastrointestinal, etc. – se aplicável)', for: 'exame_de_sistemas', class: 'form-label' %>
+        <%= nested_form.text_area 'Exame de Sistemas (neurológico, cardiovascular, respiratório, gastrointestinal, etc. – se aplicável)', id: 'exame_de_sistemas', class: 'form-control' %>
+      </div>
+    <% end %>
+  </div>
+
+  <div class="mb-3">
+    <div class="h4">
+      Histórico Social
+    </div>
+
+    <%= f.fields_for 'Histórico Social' do |nested_form| %>
+      <div class="mb-2">
+        <%= nested_form.label 'Ocupação *', class: 'form-label' %>
+        <%= nested_form.text_area 'Ocupação', class: 'form-control', required: true %>
+      </div>
+      <div class="mb-2">
+        <%= nested_form.label 'Hábitos de Vida (tabagismo, consumo de álcool, uso de drogas) *', class: 'form-label' %>
+        <%= nested_form.text_area 'Hábitos de Vida (tabagismo, consumo de álcool, uso de drogas)', class: 'form-control', required: true %>
+      </div>
+      <div class="mb-2">
+        <%= nested_form.label 'Nível de Atividade Física *', class: 'form-label' %>
+        <%= nested_form.text_area 'Nível de Atividade Física', class: 'form-control', required: true %>
+      </div>
+      <div class="mb-2">
+        <%= nested_form.label 'Apoio Social e Familiar', class: 'form-label' %>
+        <%= nested_form.text_area 'Apoio Social e Familiar', class: 'form-control' %>
+      </div>
+      <div class="mb-2">
+        <%= nested_form.label 'Estilo de Vida e Rotina Diária', class: 'form-label' %>
+        <%= nested_form.text_area 'Estilo de Vida e Rotina Diária', class: 'form-control' %>
+      </div>
+    <% end %>
+  </div>
+
+  <div class="d-inline">
+    <%= f.submit 'Enviar', class: 'btn btn-primary' %>
+    <%= link_to 'Voltar', chat_path(@chat), class: 'btn btn-primary' %>
+  </div>
+<% end %>
+<div class="mt-4">
+  <small class="form-text text-muted">
+    <span class="fw-bold">Nota Importante</span><br />
+    Este formulário deve ser preenchido com a maior precisão possível para garantir
+    uma avaliação adequada e uma recomendação segura sobre o uso de cannabis medicinal.
+    Todas as informações fornecidas serão mantidas em sigilo e utilizadas exclusivamente
+    para a avaliação clínica e o desenvolvimento de um plano de tratamento personalizado.
+  </small>
+</div>

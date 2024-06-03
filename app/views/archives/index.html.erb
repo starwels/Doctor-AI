@@ -1,17 +1,23 @@
-<div class="mb-3 d-flex flex-row justify-content-between">
+<% content_for :navigation do %>
+  <%= link_to 'Voltar', @chat, class: 'btn btn-primary', style: 'width: 100px' %>
+<% end %>
+
+<div class="my-3 d-flex flex-row justify-content-between">
   <h2>Biblioteca</h2>
-  <div>
-    <%= link_to 'Voltar', @chat, class: 'btn btn-primary' %>
-  </div>
 </div>
 
-<% @archives.each do |archive| %>
-  <div class="card mb-1 px-3 py-1 flex-row justify-content-between">
-    <div>
-      <%= archive.title %>
+<% if @archives.empty? %>
+  <div>Esse assistenten não possui arquivos na Biblioteca.</div>
+<% else %>
+  <% @archives.each do |archive| %>
+    <div class="card mb-1 px-3 py-1 flex-row justify-content-between">
+      <div>
+        <%= archive.title %>
+      </div>
+      <div>
+        <%= link_to 'download', url_for(archive.pdf), target: '_blank', class: 'link-primary link-underline-opacity-0 link-underline-opacity-100-hover' %>
+      </div>
     </div>
-    <div>
-      <%= link_to 'download', url_for(archive.pdf), target: '_blank', class: 'link-primary link-underline-opacity-0 link-underline-opacity-100-hover' %>
-    </div>
-  </div>
+  <% end %>
 <% end %>
+

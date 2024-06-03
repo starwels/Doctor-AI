@@ -1,0 +1,83 @@
+<% content_for :navigation do %>
+  <%= link_to 'Voltar', @chat, class: 'btn btn-primary', style: 'width: 100px' %>
+<% end %>
+
+<!-- clinical_cases/show.html.erb -->
+
+<h1>Clinical Case Details</h1>
+
+<div class="mb-3">
+  <div class="h4">Informações do Paciente</div>
+
+  <ul>
+    <li><strong>Idade:</strong> <%= @clinical_case.patient_data['Informações do Paciente']['Idade'] %></li>
+    <li><strong>Sexo:</strong> <%= @clinical_case.patient_data['Informações do Paciente']['Sexo'] %></li>
+  </ul>
+</div>
+
+<div class="mb-3">
+  <div class="h4">Histórico Médico</div>
+
+  <ul>
+    <li><strong>Condição Médica Principal:</strong> <%= @clinical_case.patient_data['Histórico Médico']['Condição Médica Principal'] %></li>
+    <li><strong>Diagnóstico (data e detalhes):</strong> <%= @clinical_case.patient_data['Histórico Médico']['Diagnóstico (data e detalhes)'] %></li>
+    <li><strong>Sintomas e Duração:</strong> <%= @clinical_case.patient_data['Histórico Médico']['Sintomas e Duração'] %></li>
+    <li><strong>Tratamentos Anteriores e Resposta:</strong> <%= @clinical_case.patient_data['Histórico Médico']['Tratamentos Anteriores e Resposta'] %></li>
+    <li><strong>Comorbidades:</strong> <%= @clinical_case.patient_data['Histórico Médico']['Comorbidades'] %></li>
+    <li><strong>Alergias Conhecidas:</strong> <%= @clinical_case.patient_data['Histórico Médico']['Alergias Conhecidas'] %></li>
+    <li><strong>Uso de Medicamentos Atuais (incluindo dose e frequência):</strong> <%= @clinical_case.patient_data['Histórico Médico']['Uso de Medicamentos Atuais (incluindo dose e frequência)'] %></li>
+    <li><strong>Uso de Suplementos e Terapias Alternativas:</strong> <%= @clinical_case.patient_data['Histórico Médico']['Uso de Suplementos e Terapias Alternativas'] %></li>
+  </ul>
+</div>
+
+<div class="mb-3">
+  <div class="h4">
+    Histórico de Uso de Cannabis
+  </div>
+
+  <ul>
+    <li><strong>Uso Anterior de Cannabis (medicinal ou recreativo):</strong> <%= @clinical_case.patient_data['Histórico de Uso de Cannabis']['Uso Anterior de Cannabis (medicinal ou recreativo)'] %></li>
+    <li><strong>Resposta a Cannabis (se aplicável):</strong> <%= @clinical_case.patient_data['Histórico de Uso de Cannabis']['Resposta a Cannabis (se aplicável)'] %></li>
+    <li><strong>Tipo de Produto Utilizado (se aplicável):</strong> <%= @clinical_case.patient_data['Histórico de Uso de Cannabis']['Tipo de Produto Utilizado (se aplicável)'] %></li>
+  </ul>
+</div>
+
+<div class="mb-3">
+  <div class="h4">
+    Avaliação Psicológica e Psiquiátrica
+  </div>
+
+  <ul>
+    <li><strong>Histórico de Transtornos Mentais:</strong> <%= @clinical_case.patient_data['Avaliação Psicológica e Psiquiátrica']['Histórico de Transtornos Mentais'] %></li>
+    <li><strong>Sintomas Atuais de Ansiedade, Depressão ou Outros Distúrbios:</strong> <%= @clinical_case.patient_data['Avaliação Psicológica e Psiquiátrica']['Sintomas Atuais de Ansiedade, Depressão ou Outros Distúrbios'] %></li>
+    <li><strong>Uso de Medicamentos Psicotrópicos:</strong> <%= @clinical_case.patient_data['Avaliação Psicológica e Psiquiátrica']['Uso de Medicamentos Psicotrópicos'] %></li>
+    <li><strong>Histórico Familiar de Transtornos Mentais:</strong> <%= @clinical_case.patient_data['Avaliação Psicológica e Psiquiátrica']['Histórico Familiar de Transtornos Mentais'] %></li>
+  </ul>
+</div>
+
+<div class="mb-3">
+  <div class="h4">
+    Avaliação Física
+  </div>
+
+  <ul>
+    <li><strong>Exame Físico Geral:</strong> <%= @clinical_case.patient_data['Avaliação Física']['Exame Físico Geral'] %></li>
+    <li><strong>Altura e Peso:</strong> <%= @clinical_case.patient_data['Avaliação Física']['Altura e Peso'] %></li>
+    <li><strong>Sinais Vitais (pressão arterial, frequência cardíaca, temperatura, etc. – se aplicável):</strong> <%= @clinical_case.patient_data['Avaliação Física']['Sinais Vitais (pressão arterial, frequência cardíaca, temperatura, etc. – se aplicável)'] %></li>
+    <li><strong>Exame de Sistemas (neurológico, cardiovascular, respiratório, gastrointestinal, etc. – se aplicável):</strong> <%= @clinical_case.patient_data['Avaliação Física']['Exame de Sistemas (neurológico, cardiovascular, respiratório, gastrointestinal, etc. – se aplicável)'] %></li>
+  </ul>
+</div>
+
+<div class="mb-3">
+  <div class="h4">
+    Histórico Social
+  </div>
+
+  <ul>
+    <li><strong>Ocupação:</strong> <%= @clinical_case.patient_data['Histórico Social']['Ocupação'] %></li>
+    <li><strong>Hábitos de Vida (tabagismo, consumo de álcool, uso de drogas):</strong> <%= @clinical_case.patient_data['Histórico Social']['Hábitos de Vida (tabagismo, consumo de álcool, uso de drogas)'] %></li>
+    <li><strong>Nível de Atividade Física:</strong> <%= @clinical_case.patient_data['Histórico Social']['Nível de Atividade Física'] %></li>
+    <li><strong>Apoio Social e Familiar:</strong> <%= @clinical_case.patient_data['Histórico Social']['Apoio Social e Familiar'] %></li>
+    <li><strong>Estilo de vida e rotina diária:</strong> <%= @clinical_case.patient_data['Histórico Social']['Estilo de Vida e Rotina Diária'] %></li>
+  </ul>
+</div>

@@ -1,22 +1,24 @@
+<% content_for :navigation do %>
+  <%= link_to 'Voltar', root_path, class: 'btn btn-primary', style: 'width: 100px' %>
+<% end %>
+
 <%= turbo_frame_tag @chat, class: 'd-flex flex-grow-1' do %>
   <%= turbo_stream_from "messages" %>
 
   <div class="row flex-grow-1">
-    <div class="col-3 border-end">
+    <div class="col-3 border-end pt-3">
       <div class="d-grid gap-2">
         <%= link_to 'Biblioteca', chat_archives_path(@chat), class: 'btn btn-success', data: { turbo: false } %>
-        <%= link_to 'Prescrição', chat_archives_path(@chat), class: 'btn btn-success' %>
+        <%= link_to 'Novo Caso Clínico', new_chat_clinical_case_path(@chat), class: 'btn btn-success', data: { turbo: false } %>
       </div>
     </div>
-    <div class="col-9 d-flex flex-column">
-      <div id='messages-container' class="row flex-grow-1 overflow-scroll" data-controller="scroll">
-        <div class="col d-flex flex-column py-2">
-          <%= turbo_frame_tag 'messages' do %>
-            <% @chat.messages.each do |message| %>
-              <%= render message %>
-            <% end %>
+    <div class="col-9 d-flex flex-column pt-3 text-break" style="overflow-y: scroll; height: calc(100vh - 50px)">
+      <div id='messages-container' class="row flex-grow-1" data-controller="scroll">
+        <%= turbo_frame_tag 'messages' do %>
+          <% @chat.messages.each do |message| %>
+            <%= render message %>
           <% end %>
-        </div>
+        <% end %>
       </div>
 
       <div class="row mt-2">
