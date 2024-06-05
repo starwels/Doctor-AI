@@ -2,13 +2,6 @@
   <% content_for :navigation do %>
     <%= link_to 'Voltar', @chat, class: 'btn btn-primary', style: 'width: 100px' %>
   <% end %>
-  <% content_for :actions do %>
-    <li class="nav-item me-2">
-      <button class="btn btn-primary" title="Download PDF" data-action="click->downloadable#download" data-downloadable-filename="greenminds-caso-clínico.pdf">
-        Baixar PDF
-      </button>
-    </li>
-  <% end %>
 
   <div data-downloadable-target="content">
     <div class="h4">Caso Clínico</div>
@@ -84,5 +77,7 @@
     </div>
   </div>
 
-
+  <button class="btn btn-primary" title="Download PDF" data-action="click->downloadable#download" data-downloadable-filename="greenminds-caso-clínico.pdf">
+    Baixar PDF
+  </button>
 </div>
