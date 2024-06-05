@@ -12,11 +12,22 @@
           <span class="visually-hidden">Loading...</span>
         </div>
       <% else %>
-        <% if message.user? %>
-          <%= raw message.body %>
-        <% else %>
-          <%= MarkdownRenderer.new.render(message.body) %>
-        <% end %>
+        <div data-controller="downloadable">
+          <div data-downloadable-target="content">
+            <% if message.user? %>
+              <%= raw message.body %>
+            <% else %>
+              <%= MarkdownRenderer.new.render(message.body) %>
+            <% end %>
+          </div>
+          <% if message.ai? %>
+            <div class="d-flex justify-content-end">
+              <button class="btn btn-outline-primary btn-sm border-0 rounded-0" title="Download PDF" data-action="click->downloadable#download" data-downloadable-filename="greenminds-chat.pdf">
+                Baixar PDF <i class="bi bi-file-earmark-arrow-down-fill"></i>
+              </button>
+            </div>
+          <% end %>
+        </div>
       <% end %>
     </div>
   </div>

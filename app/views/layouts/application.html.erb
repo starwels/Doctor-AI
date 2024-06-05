@@ -19,6 +19,7 @@
           <li class="nav-item me-2">
             <%= yield :navigation %>
           </li>
+          <%= yield :actions %>
           <% if current_user&.admin? %>
             <li class="nav-item me-2">
               <%= link_to 'Painél Admin', admin_root_path, class: 'btn btn-primary fs-6' %>
