@@ -111,5 +111,5 @@ Rails.application.configure do
   config.action_mailer.raise_delivery_errors = true
 
   # You may want to configure the default from email address
-  config.action_mailer.default_options = { from: 'no-reply@greenmindsai.com.br' }
+  config.action_mailer.default_options = { from: 'greenmindsai@gmail.com' }
 end
