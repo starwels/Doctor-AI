@@ -63,6 +63,7 @@ pt-BR:
 
   errors:
     messages:
+      taken: "já está em uso"
       already_confirmed: "já foi confirmado"
       confirmation_period_expired: "precisa ser confirmada em até %{period}, por favor, solicite uma nova"
       expired: "expirou, por favor, solicite uma nova"
