@@ -6,11 +6,11 @@
       <div class="row mb-2">
         <div class="col">
           <%= nested_form.label 'Idade *', class: 'form-label fs-6', autofocus: true %>
-          <%= nested_form.text_field 'Idade', class: 'form-control', required: true %>
+          <%= nested_form.text_field 'Idade', class: 'form-control', required: true, autocomplete: 'off' %>
         </div>
         <div class="col">
           <%= nested_form.label 'Sexo *', class: 'form-label' %>
-          <%= nested_form.text_field 'Sexo', class: 'form-control', required: true %>
+          <%= nested_form.text_field 'Sexo', class: 'form-control', required: true, autocomplete: 'off' %>
         </div>
       </div>
     <% end %>
