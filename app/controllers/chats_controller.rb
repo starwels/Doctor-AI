@@ -1,12 +1,5 @@
 class ChatsController < ApplicationController
   def index
-    # if params[:prompt]
-    #   chat = OpenAi::Base.new
-    #   @response = chat.complete(params[:prompt])
-    # else
-    #   @response = 'response is empty'
-    # end
-
     @chats = current_user.chats.order(created_at: :desc)
   end
 

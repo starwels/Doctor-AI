@@ -14,6 +14,7 @@ module OpenAi
       }
     end
 
+    # not being used
     def complete(prompt, max_tokens = 50)
       options = {
         body: {
