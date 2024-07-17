@@ -20,3 +20,10 @@ pt-BR:
       user:
         email: 'Email'
         password: 'Senha'
+        first_name: 'Nome'
+        last_name: 'Sobrenome'
+        phone_number: 'Telefone'
+
+    errors:
+      messages:
+        blank: 'não pode ficar em branco'
