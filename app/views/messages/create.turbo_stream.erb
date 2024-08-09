@@ -1,5 +1,5 @@
 <%= turbo_stream.append 'messages' do %>
-  <%= render @message %>
+  <%= render @message, message: @message %>
 <% end %>
 
 <%= turbo_stream.append 'messages' do %>

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2024_07_17_030600) do
+ActiveRecord::Schema[7.1].define(version: 2024_08_09_002646) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "pgcrypto"
   enable_extension "plpgsql"
@@ -90,6 +90,7 @@ ActiveRecord::Schema[7.1].define(version: 2024_07_17_030600) do
     t.uuid "chat_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.boolean "stop", default: false
     t.index ["chat_id"], name: "index_messages_on_chat_id"
   end
 

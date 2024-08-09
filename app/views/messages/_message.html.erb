@@ -1,34 +1,39 @@
-<div class="d-flex mb-1 <%= message.user? ? 'justify-content-start' : 'justify-content-end' %>">
-  <div class="d-flex flex-column">
-    <% if message.user? %>
-      <div class="small">You</div>
-    <% else %>
-      <div class="small text-end">Doctor A.I.</div>
-    <% end %>
-
-    <div id="<%= message.id %>" class="border rounded-3 px-3 py-2 <%= message.user? ? 'bg-primary-subtle' : 'bg-success-subtle markdown-content' %>">
-      <% if message.body.empty? %>
-        <div class="spinner-border spinner-border-sm" role="status">
-          <span class="visually-hidden">Loading...</span>
-        </div>
+<%= turbo_frame_tag message do %>
+  <div class="d-flex mb-1 <%= message.user? ? 'justify-content-start' : 'justify-content-end' %>">
+    <div class="d-flex flex-column">
+      <% if message.user? %>
+        <div class="small">You</div>
       <% else %>
-        <div data-controller="downloadable">
-          <div data-downloadable-target="content">
-            <% if message.user? %>
-              <%= raw message.body %>
-            <% else %>
-              <%= MarkdownRenderer.new.render(message.body) %>
+        <div class="small text-end">Doctor A.I.</div>
+      <% end %>
+
+      <div id="<%= message.id %>" class="border rounded-3 px-3 py-2 <%= message.user? ? 'bg-primary-subtle' : 'bg-success-subtle markdown-content' %>">
+        <% if message.body.empty? %>
+          <div class="spinner-container">
+            <%= link_to '', chat_message_path(message.chat.id, message.id), title: 'Deletar', class: 'btn btn-danger btn-square', data: { turbo_method: :delete }  %>
+            <div class="spinner-border spinner-border-sm" role="status">
+              <span class="visually-hidden">Loading...</span>
+            </div>
+          </div>
+        <% else %>
+          <div data-controller="downloadable">
+            <div data-downloadable-target="content">
+              <% if message.user? %>
+                <%= raw message.body %>
+              <% else %>
+                <%= MarkdownRenderer.new.render(message.body) %>
+              <% end %>
+            </div>
+            <% if message.ai? %>
+              <div class="d-flex justify-content-end">
+                <button class="btn btn-outline-primary btn-sm border-0 rounded-0" title="Download PDF" data-action="click->downloadable#download" data-downloadable-filename="greenminds-chat.pdf">
+                  Baixar PDF <i class="bi bi-file-earmark-arrow-down-fill"></i>
+                </button>
+              </div>
             <% end %>
           </div>
-          <% if message.ai? %>
-            <div class="d-flex justify-content-end">
-              <button class="btn btn-outline-primary btn-sm border-0 rounded-0" title="Download PDF" data-action="click->downloadable#download" data-downloadable-filename="greenminds-chat.pdf">
-                Baixar PDF <i class="bi bi-file-earmark-arrow-down-fill"></i>
-              </button>
-            </div>
-          <% end %>
-        </div>
-      <% end %>
+        <% end %>
+      </div>
     </div>
   </div>
-</div>
+<% end %>

@@ -13,23 +13,30 @@
         <% end %>
       </div>
     </div>
-    <div class="col-9 d-flex flex-column pt-3 text-break" style="overflow-y: scroll; height: calc(100vh - 50px)">
-      <div id='messages-container' class="row flex-grow-1" data-controller="scroll">
-        <%= turbo_frame_tag 'messages' do %>
-          <% @chat.messages.each do |message| %>
-            <%= render message %>
+    <div class="col-9 d-flex flex-column pt-3 text-break" style="height: calc(100vh - 50px);">
+      <div class="row h-100 overflow-hidden">
+        <div class="col-12 flex-grow-1 overflow-scroll" style="height: calc(100% - 54px)" id="messages-container" data-controller="clear-input">
+          <%= turbo_frame_tag 'messages' do %>
+            <% @chat.messages.order(created_at: :asc).each do |message| %>
+              <%= render message %>
+            <% end %>
           <% end %>
-        <% end %>
+        </div>
+
+        <div class="col-12" style="">
+          <%= form_for [@chat, Message.new], method: :post, html: { data: { controller: :scroll }} do |f| %>
+            <div class="input-group mb-3">
+              <%= f.text_field :body, placeholder: 'Faça sua pergunta...', class: 'form-control shadow-none', autofocus: true, autocomplete: 'off', required: true %>
+              <%= f.submit 'Enviar', class: 'btn btn-secondary' %>
+            </div>
+          <% end %>
+        </div>
       </div>
 
-      <div class="row mt-2">
-        <%= form_for [@chat, Message.new], method: :post do |f| %>
-          <div class="input-group mb-3">
-            <%= f.text_field :body, placeholder: 'Faça sua pergunta...', class: 'form-control shadow-none', autofocus: true, autocomplete: 'off', required: true %>
-            <%= f.submit 'Enviar', class: 'btn btn-outline-secondary' %>
-          </div>
-        <% end %>
-      </div>
+
+
+
     </div>
+
   </div>
 <% end %>

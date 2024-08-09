@@ -13,6 +13,15 @@ class MessagesController < ApplicationController
       format.turbo_stream
     end
   end
+  
+  def destroy
+    @message = current_user.messages.find(params[:id])
+    @message.destroy
+    
+    respond_to do |format|
+      format.turbo_stream
+    end
+  end
 
   private
 

@@ -1,5 +1,6 @@
 // app/javascript/controllers/archive_controller.js
 
+// Used to update the relation of an assistant to an archive
 
 import { Controller } from "@hotwired/stimulus"
 
@@ -7,7 +8,8 @@ export default class extends Controller {
     static targets = ["checkbox"]
 
     connect() {
-        // You can set up any additional connection logic here if needed
+
+        console.log('connect archive')
     }
 
     toggleArchive(event) {
