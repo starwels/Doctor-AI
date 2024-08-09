@@ -10,7 +10,7 @@
     <h4>Criar nova conversa</h4>
     <div class="border border-top border-success mb-2"></div>
     <div class="d-grid gap-2">
-      <% Assistant.all.each do |assistant| %>
+      <% Assistant.all.order(created_at: :desc).each do |assistant| %>
         <%= form_tag chats_path(assistant: assistant.name), method: :post, style: 'display: inherit' do %>
           <%= submit_tag assistant.name, class: 'btn btn-success text-start' %>
         <% end %>
