@@ -24,7 +24,6 @@ Rails.application.routes.draw do
 
   resources :chats, only: [:index, :show, :create, :edit, :update, :destroy] do
     resources :messages, only: :create
-    resources :archives, only: :index
     resources :clinical_cases, only: [:index, :new, :create, :show]
   end
 end

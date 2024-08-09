@@ -8,7 +8,6 @@
   <div class="row flex-grow-1">
     <div class="col-3 border-end pt-3">
       <div class="d-grid gap-2">
-        <%= link_to 'Biblioteca', chat_archives_path(@chat), class: 'btn btn-success', data: { turbo: false } %>
         <% if @chat.assistant.name == 'GreenMinds' %>
           <%= link_to 'Novo Caso Clínico', new_chat_clinical_case_path(@chat), class: 'btn btn-success', data: { turbo: false } %>
         <% end %>
