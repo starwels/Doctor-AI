@@ -22,9 +22,6 @@ export default class extends Controller {
 
     const filename = event.target.dataset.downloadableFilename || 'greenminds.pdf';
 
-    console.log('oi');
-    console.log(element);
-
     const options = {
       margin: 1,
       filename: filename,
